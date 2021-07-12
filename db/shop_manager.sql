@@ -15,6 +15,6 @@ CREATE TABLE products (
   stock_quantity tinyint,
   buying_cost smallmoney,
   selling_price smallmoney,
-  product_manufacturer VARCHAR(255)
+  product_manufacturer VARCHAR(255),
   in_stock BOOLEAN
 );
