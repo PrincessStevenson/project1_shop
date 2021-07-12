@@ -22,8 +22,8 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        product = product_repository.select(row['manufacturer_id'])
-        Manufacturer = Product(row['manufacturers_name'], manufacturer, row['country_origin'], row['id'] )
+        manufacturer = manufacturer_repository.select(row['maufacturer_id'])
+        product = Product(row['product_name'], row['product_type'], row['product_description'], row['stock_quantity'], row['buying_cost'], row['selling_price'], row['product_manufacturer'], row['id'])
         products.append(product)
     return products
 
@@ -43,17 +43,17 @@ def select(id):
 
 
 def delete_all():
-    sql = "DELETE  FROM products"
+    sql = "DELETE FROM products"
     run_sql(sql)
 
 
 def delete(id):
-    sql = "DELETE  FROM products WHERE id = %s"
+    sql = "DELETE FROM products WHERE id = %s"
     values = [id]
     run_sql(sql, values)
 
 
 def update(product):
     sql = "UPDATE products SET (product_name, product_type, product_description, stock_quantity, buying_cost, selling_price, product_manufacturer) = (%s, %s, %s, %s) WHERE id = %s"
-    values = [tproduct.product.name, product.product.type, product.product.description, product.stock.quantity, product.buying.cost, product.selling.cost, product.manufacturer.id, product.id]
+    values = [product.product.name, product.product.type, product.product.description, product.stock.quantity, product.buying.cost, product.selling.cost, product.manufacturer.id, product.id]
     run_sql(sql, values)
