@@ -10,3 +10,6 @@ class Product:
         self.product_manufacturer = product_manufacturer
         self.in_stock = in_stock
         self.id = id
+
+    def mark_outofstock(self)
+        self.outofstock = False

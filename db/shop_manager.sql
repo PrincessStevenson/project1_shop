@@ -16,5 +16,6 @@ CREATE TABLE products (
   buying_cost smallmoney,
   selling_price smallmoney,
   product_manufacturer VARCHAR(255),
-  in_stock BOOLEAN
+  in_stock BOOLEAN,
+  manufacturer_id INT REFERENCES manufacturers(id)
 );
