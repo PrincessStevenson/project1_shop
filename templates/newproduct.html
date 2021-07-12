@@ -1,4 +1,83 @@
 {% extends "base.html" %}
+
 {% block content %}
-"Add Product Form"
+
+<p>
+</p>
+<form action="/products/new" method="post">
+
+</form>
+
+<form action="/products" method="post">
+
+    <div>
+        <label for="product_name">Product Name:</label>
+        <input type="text" id="product_name" name="product_name">
+    </div>
+
+    <p>
+    </p>
+
+    <div>    
+        <label for="product_type">Product Type:</label>
+        <p></p>
+        <input type="radio" id="product_type" name="product_type" value="Toys">
+        <label for="Toys">Toys</label><br>
+        <input type="radio" id="product_type" name="product_type" value="Uniforms">
+        <label for="uniforms">Uniforms</label><br>
+        <input type="radio" id="product_type" name="product_type" value="Other">
+        <label for="other">Other</label>
+  
+    <p>
+    </p>
+
+    <div>
+        <label for="product_description">Product Description:</label>
+        <input type="text" id="product_description" name="product_description">
+    </div>
+    <p>
+    </p>
+    <div>
+        <label for="stock_quantity">Stock Quantity:</label>
+        <input type="text" id="stock_quantity" name="stock_quantity">
+    </div>
+    <p>
+    </p>
+    <div>
+        <label for="buying_cost">Buying Cost:</label>
+        <input type="text" id="buying_cost" name="buying_cost">
+    </div>
+    <p>
+    </p>
+    <div>
+        <label for="selling_price">Selling Price:</label>
+        <input type="text" id="selling_price" name="selling_price">
+    </div>
+    <p>
+    </p>
+    <div>
+        <label for="product_manufacturer">Manufacturer:</label>
+        <input type="text" id="product_manufacturer" name="product_manufacturer">
+    </div>
+    <p>
+    </p>
+    <div>
+        <label for="in_stock">In Stock?:</label>
+        <select name="in_stock" id="in_stock">
+            <option value="true">Stock Available</option>
+            <option value="false" selected>Out of Stock!</option>
+        </select>
+    </div>
+
+    <p>
+    </p>
+    <button type="reset"> Reset </button>
+
+    <button type="submit"> Add Product! </button>
+
+    
+</form>
+
+</form>
+
 {% endblock %}
