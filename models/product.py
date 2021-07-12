@@ -8,7 +8,6 @@ class Product:
         self.buying_cost = buying_cost
         self.selling_price = selling_price
         self.product_manufacturer = product_manufacturer
-        self.in_stock = in_stock
         self.id = id
 
     def mark_outofstock(self)
