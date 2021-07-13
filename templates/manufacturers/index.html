@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+"Manufacturers Page"
+<p>
+</p>
+<p>
+</p>
+{% for manufacturer in all_manufacturers%}
+    {{ manufacturer.manufacturers_name}}
+    {{ manufacturer.country_origin}}
+<p>
+</p>
+{% endfor %}
+{% endblock %}

@@ -57,7 +57,12 @@
     </p>
     <div>
         <label for="product_manufacturer">Manufacturer:</label>
-        <input type="text" id="product_manufacturer" name="product_manufacturer">
+        <select name="product_manufacturer" id="product_manufacturer">
+            {% for manufacturer in all_manufacturers %}
+                <option value={{manufacturer.id}}>{{manufacturer.manufacturers_name}}</option>
+            {% endfor %}
+
+        </select>
     </div>
     <p>
     </p>

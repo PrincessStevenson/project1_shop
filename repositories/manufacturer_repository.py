@@ -1,4 +1,4 @@
-from app import manufacturers
+
 from db.run_sql import run_sql
 from models.manufacturer import Manufacturer
 from models.product import Product
@@ -7,7 +7,7 @@ import repositories.product_repository as product_repository
 
 def save(manufacturer):
     sql = "INSERT INTO manufacturers (manufacturers_name, country_origin) VALUES (%s, %s) RETURNING *"
-    values = [manufacturer.manufacturers.name, manufacturer.country.origin]
+    values = [manufacturer.manufacturers_name, manufacturer.country_origin]
     results = run_sql(sql, values)
     id = results[0]['id']
     manufacturer.id = id
@@ -50,11 +50,11 @@ def delete(id):
 
 def update(manufacturer):
     sql = "UPDATE manufacturers SET (manufacturers_name, country_origin) = (%s, %s) WHERE id = %s"
-    values = [manufacturer.manufacturers.name, manufacturer.country.origin, manufacturer.id]
+    values = [manufacturer.manufacturers_name, manufacturer.country_origin, manufacturer.id]
     run_sql(sql, values)
 
 def products(manufacturer):
-    manufacturers = []
+    products = []
 
     sql = "SELECT * FROM products WHERE manufacturer_id = %s"
     values = [manufacturer.id]

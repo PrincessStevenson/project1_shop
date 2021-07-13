@@ -6,8 +6,8 @@ import repositories.product_repository as product_repository
 
 
 def save(product):
-    sql = "INSERT INTO products (product_name, product_type, product_description, stock_quantity, buying_cost, selling_price, manufacturer_id) VALUES (%s, %s, %s, %s) RETURNING *"
-    values = [product.product.name, product.product.type, product.product.description, product.stock.quantity, product.buying.cost, product.selling.cost, product.manufacturer.id, product.id]
+    sql = "INSERT INTO products (product_name, product_type, product_description, stock_quantity, buying_cost, selling_price, manufacturer_id) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [product.product_name, product.product_type, product.product_description, product.stock_quantity, product.buying_cost, product.selling_price, product.product_manufacturer.id]
     results = run_sql(sql, values)
     id = results[0]['id']
     product.id = id
@@ -16,16 +16,16 @@ def save(product):
 
 
 def select_all():
-    products = []
+    all_products = []
 
     sql = "SELECT * FROM products"
     results = run_sql(sql)
 
     for row in results:
-        manufacturer = manufacturer_repository.select(row['maufacturer_id'])
-        product = Product(row['product_name'], row['product_type'], row['product_description'], row['stock_quantity'], row['buying_cost'], row['selling_price'], row['product_manufacturer'], row['id'])
-        products.append(product)
-    return products
+        manufacturer = manufacturer_repository.select(row['manufacturer_id'])
+        product = Product(row['product_name'], row['product_type'], row['product_description'], row['stock_quantity'], row['buying_cost'], row['selling_price'], manufacturer, row['id'])
+        all_products.append(product)
+    return all_products
 
 
 def select(id):
@@ -36,7 +36,7 @@ def select(id):
 
     if result is not None:
         manufacturer = manufacturer_repository.select(result['manufacturer_id'])
-        product = Product(result['product_name'], result['product_type'] , result['product_description'], result['stock_quantity'], result['buying_cost'], result['selling_price'], result['product_manufacturer'], result['id'])
+        product = Product(result['product_name'], result['product_type'] , result['product_description'], result['stock_quantity'], result['buying_cost'], result['selling_price'], manufacturer, result['id'])
     return product
 
 
@@ -55,5 +55,5 @@ def delete(id):
 
 def update(product):
     sql = "UPDATE products SET (product_name, product_type, product_description, stock_quantity, buying_cost, selling_price, product_manufacturer) = (%s, %s, %s, %s) WHERE id = %s"
-    values = [product.product.name, product.product.type, product.product.description, product.stock.quantity, product.buying.cost, product.selling.cost, product.manufacturer.id, product.id]
+    values = [product.product_name, product.product_type, product.product_description, product.stock_quantity, product.buying_cost, product.selling_cost, product.product_manufacturer.id, product.id]
     run_sql(sql, values)

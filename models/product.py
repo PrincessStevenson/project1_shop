@@ -11,4 +11,4 @@ class Product:
         self.id = id
 
     # def mark_outofstock(self)
-    #     self.outofstock = False
+    #     self.stock_quantity = False

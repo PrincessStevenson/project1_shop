@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+"Show All Products!"
+<p>
+</p>
+<p>
+</p>
+{% for product in all_products%}
+    {{ product.product_name}}
+    {{ product.buying_cost}}
+    {{ product.selling_price}}
+{% endfor %}
+<p>
+</p>
+<p>
+</p>
+{% endblock %}
