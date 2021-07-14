@@ -8,6 +8,7 @@ class Product:
         self.buying_cost = buying_cost
         self.selling_price = selling_price
         self.product_manufacturer = product_manufacturer
+        # self.product_image = product_image
         self.id = id
 
     def check_stock(self):
@@ -22,4 +23,3 @@ class Product:
             
         else: return (["In Stock!", "green"])
     
- 

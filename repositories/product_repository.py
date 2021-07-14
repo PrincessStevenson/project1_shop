@@ -28,6 +28,13 @@ def select_all():
     return all_products
 
 
+def total_products(product_type):
+    sql = "SELECT COUNT(product_type) from products WHERE product_type = %s"
+    values = [product_type]
+    results = run_sql(sql, values)[0][0]
+    return(results)
+
+
 def select(id):
     product = None
     sql = "SELECT * FROM products WHERE id = %s"

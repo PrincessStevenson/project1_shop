@@ -14,6 +14,19 @@ body {
   background-color: turquoise;
 }
 
+
+/* filter checkbox */
+body {
+    padding: 50px;
+  }
+  
+  input[name=toys]:checked ~ .items div:not([data-type=toys]),
+  input[name=uniforms]:checked ~ .items div:not([data-type=uniforms]){
+    display: none;
+
+
+
+  }
 .orange {
     color: orange;
 
@@ -27,11 +40,12 @@ body {
     color: lawngreen;
 }
 #allprods {
-    color: red
+    
+    color: rgb(0, 0, 0);
+    font: 30px;
 }
 
-
-//- Set the grid layout -//
+/* //- Set the grid layout -// */
 .grid {
   display: grid;
   grid-template-areas: 'header' 'sidebar' 'main' 'footer';
@@ -40,7 +54,7 @@ body {
 
   margin-right: auto;
   margin-left: auto;
-  max-width: remy(1170px);
+  max-width:fit-content(1170px);
   min-height: 100vh;
 
   @media screen and (min-width: 768px) {
@@ -49,7 +63,7 @@ body {
   }
 }
 
-//- Define template areas -//
+/* //- Define template areas -// */
 header {
   grid-area: header;
 }

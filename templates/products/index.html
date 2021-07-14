@@ -1,20 +1,98 @@
 {% extends "base.html" %}
 {% block content %}
-<p id="allprods"> "Show All Products!"</p>
+<h3 id="allprods"> "Show All Products!" ({{toys + uniforms + other}})</h3>
+<p>
+<div class="col-sm-3 col-md-2 category-sidebar page-sidebar" id="category-left" style="top: 0px;">
+
+<div class="filters-left">
+
+    <p class="filters-title">Refine By</p>
+
+</div>
+
+  <div class="block block-layered-nav">
+    <div class="block-content">
+
+
+      <div class="product-options-container-wide">
+        <dl id="narrow-by-list" style="height: 590px;">
+
+
+            <div id="filter-wrapper">
+
+              
+            <div class="filter filter-container label" facetid="style" data-facetfhid="1c6f5e95-c102-44ab-9b55-22eec9b41d6d">
+
+            <div class="">
+
+                <h6 class="toggle-category-header">
+                    <i class="fa fa-caret-down" data-icon="caret"></i>
+                                        Product Type                                  </h6>
+
+            </div>
+
+
+          <div class="filter-wraper-sub">
+
+                  <div class=" filter-scrollbar">
+
+                      <div class="scrollbar disable" style="height: 0px;"><div class="track" style="height: 0px;"><div class="thumb" style="top: 0px; height: 20px;"><div class="end"></div></div></div></div>
+
+                      <div class="viewport">
+
+                          <div class="overview" style="top: 0px;">
+                              
+<ol class="filter-options-wrapper" filterid="style">
+
+    
+        
+        <li class="filter-option selected" filteroptionid="toys">
+            <span class="input-box"><i class="fa fa-check"></i></span>
+            <span class="filter-option-label">Toys</span>
+                        <span class="filter-option-count">8</span>
+                    </li>
+</p>
+<input type="checkbox" id="product_type" name="toys"> Toys ({{toys}})
+<br/><input type="checkbox" id="product_type" name="uniforms"> Uniforms ({{uniforms}})
+
+<hr/>
+
+<div class="items">
+
 <p>
 </p>
+<h3 id="allprods"> "Show All Products!"</h3>
 <p>
 </p>
 {% for product in all_products %}
-    {{ product.product_name}}
-    {{ product.buying_cost}}
-    {{ product.selling_price}}
 
+
+
+
+<main>
+    <article class="card"><div data-type="{{product.product_type}}">
+      
+      <h1 class="card__heading">{{product.product_name}}</h1>
+      
+      <p class="card__excerpt"> {{product.product_description}}</p>
+
+      <a href="/products/{{product.id}}"><strong><small>read more &raquo;</small></strong></a>
+      
+      <p>
+      </p>
+      Buying Cost:
+      <label for="buying_cost">{{product.buying_cost}}</label>
+      <p>
+      </p>
+      RRP:
+      <label for="rrp">{{product.selling_price}}</label>
+
+    
 <p class={{ product.check_stock() [1] }}>
     {{ product.check_stock() [0] }} 
 </p>
-
-
+    </article>
+</main>
 
 <p>
 </p>

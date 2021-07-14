@@ -14,7 +14,10 @@ products_blueprint = Blueprint("products", __name__)
 @products_blueprint.route('/products')
 def product():
     products = product_repository.select_all()
-    return render_template('products/index.html', all_products = products)
+    toys = product_repository.total_products("Toys")
+    uniforms = product_repository.total_products("Uniforms")
+    other = product_repository.total_products("Other")
+    return render_template('products/index.html', all_products = products, toys = toys, uniforms = uniforms, other = other)
 
 
 
@@ -45,6 +48,14 @@ def create_product():
 
 # SHOW
 # GET '/products/<id>'
+@products_blueprint.route("/products/<id>")
+def show_product(id):
+    product_index = product_repository.select(id)
+    return render_template("products/show.html", product_index = product_index)
+    
+# products/{{product.id}}
+
+
 
 # EDIT
 # GET '/products/<id>/edit'
