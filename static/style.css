@@ -1,0 +1,125 @@
+
+html {font: 16px 'Open Sans Condensed', 'Roboto Condensed', Verdana, sans-serif;}
+
+
+#header{
+    color: hotpink;
+    font: 20%;
+    text-align: center;
+
+}
+body {
+  width: 100%;
+  height: 100%;
+  background-color: turquoise;
+}
+
+.orange {
+    color: orange;
+
+}
+
+.red {
+    color: red;
+}
+
+.green{
+    color: lawngreen;
+}
+#allprods {
+    color: red
+}
+
+
+//- Set the grid layout -//
+.grid {
+  display: grid;
+  grid-template-areas: 'header' 'sidebar' 'main' 'footer';
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(min-content, max-content) auto minmax(min-content, max-content);
+
+  margin-right: auto;
+  margin-left: auto;
+  max-width: remy(1170px);
+  min-height: 100vh;
+
+  @media screen and (min-width: 768px) {
+    grid-template-areas: 'header header' 'sidebar main' 'footer footer';
+    grid-template-columns: 1fr 4fr;
+  }
+}
+
+//- Define template areas -//
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+aside {
+  grid-area: sidebar;
+}
+
+footer {
+  grid-area: footer;
+}
+
+
+/* header and footer lines */
+.line {
+  float: left;
+  width: 100%;
+  border-top: 3px solid Black;
+}
+.wrapper {
+  margin: auto;
+  width: 900px;
+  min-height: 70%;
+}
+
+/* takes the underlining away */
+a {
+  text-decoration: none;
+}
+
+/*Navs*/
+nav h1 {
+  float: justify;
+  justify-content: center;
+  margin-bottom: 5%;
+  margin-left: 10px;
+  padding: .25em .25em 0 0;
+  font-size: 2.5em;
+}
+nav h1 a {color:hotpink;}
+.nav-ul {
+  display: flex;
+}
+header li {width: 10%;}
+header .nav-ul a {
+  display: flex;
+  padding: 5%;
+  font-size: 20px;
+  text-align: center;
+  color: Black;
+}
+
+
+/*Footer*/
+footer {
+  padding: 2% 0;
+  width: 100%;
+  text-align: center;
+  background: lightGrey;
+}
+footer .nav-ul {justify-content: center;margin-bottom: 10px;}
+footer li:not(:first-child) {margin-left: 25px;}
+footer li:first-child a {color: hotpink;}
+footer a {
+  font-size: 15px;
+  font-weight: bold;
+  color: hotpink;
+}
+.copy {font-size: 15px;}

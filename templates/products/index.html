@@ -1,14 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-"Show All Products!"
+<p id="allprods"> "Show All Products!"</p>
 <p>
 </p>
 <p>
 </p>
-{% for product in all_products%}
+{% for product in all_products %}
     {{ product.product_name}}
     {{ product.buying_cost}}
     {{ product.selling_price}}
+
+<p class={{ product.check_stock() [1] }}>
+    {{ product.check_stock() [0] }} 
+</p>
+
+
 
 <p>
 </p>
@@ -17,3 +23,5 @@
 </p>
 
 {% endblock %}
+
+

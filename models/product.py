@@ -10,16 +10,16 @@ class Product:
         self.product_manufacturer = product_manufacturer
         self.id = id
 
-    # def mark_outofstock(self):
+    def check_stock(self):
         
-    #     stock_quantity = self.stock_quantity
+        stock_quantity = self.stock_quantity
         
-    #     if stock_quantity is <5:
-    #         print ("Low in Stock!") 
+        if stock_quantity == 0:
+            return (["Out of Stock!", "red"]) 
             
-    #     elif stock_quantity == 0
-    #         print ("Out of Stock!")
+        elif stock_quantity <5:
+            return (["Low in Stock!", "orange"])
             
-    #     else: print ("In Stock!")
+        else: return (["In Stock!", "green"])
     
-    # selling_price - buying_cost = 
+ 
