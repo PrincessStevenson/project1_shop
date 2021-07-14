@@ -2,13 +2,7 @@
 {% block content %}
 <h3 id="allprods"> "Show All Products!" ({{toys + uniforms + other}})</h3>
 <p>
-<div class="col-sm-3 col-md-2 category-sidebar page-sidebar" id="category-left" style="top: 0px;">
 
-<div class="filters-left">
-
-    <p class="filters-title">Refine By</p>
-
-</div>
 
   <div class="block block-layered-nav">
     <div class="block-content">
@@ -23,14 +17,6 @@
               
             <div class="filter filter-container label" facetid="style" data-facetfhid="1c6f5e95-c102-44ab-9b55-22eec9b41d6d">
 
-            <div class="">
-
-                <h6 class="toggle-category-header">
-                    <i class="fa fa-caret-down" data-icon="caret"></i>
-                                        Product Type                                  </h6>
-
-            </div>
-
 
           <div class="filter-wraper-sub">
 
@@ -44,14 +30,20 @@
                               
 <ol class="filter-options-wrapper" filterid="style">
 
-    
-        
-        <li class="filter-option selected" filteroptionid="toys">
-            <span class="input-box"><i class="fa fa-check"></i></span>
-            <span class="filter-option-label">Toys</span>
-                        <span class="filter-option-count">8</span>
-                    </li>
-</p>
+    <div class="col-sm-3 col-md-2 category-sidebar page-sidebar" id="category-left" style="top: 0px;">
+
+    <div class="filters-left">
+
+    <p class="filters-title">Refine By</p>
+
+</div>
+            <div class="">
+
+                <h6 class="toggle-category-header">
+                    <i class="fa fa-caret-down" data-icon="caret"></i>
+                                        Product Type                                  </h6>
+
+            </div>
 <input type="checkbox" id="product_type" name="toys"> Toys ({{toys}})
 <br/><input type="checkbox" id="product_type" name="uniforms"> Uniforms ({{uniforms}})
 
@@ -59,12 +51,10 @@
 
 <div class="items">
 
+
 <p>
 </p>
-<h3 id="allprods"> "Show All Products!"</h3>
-<p>
-</p>
-{% for product in all_products %}
+  {% for product in all_products %}
 
 
 
@@ -96,7 +86,7 @@
 
 <p>
 </p>
-{% endfor %}
+  {% endfor %}
 <p>
 </p>
 

@@ -1,4 +1,5 @@
 
+import pdb
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.product import Product
@@ -60,9 +61,27 @@ def show_product(id):
 
 # EDIT
 # GET '/products/<id>/edit'
+@products_blueprint.route("/products/<id>/edit")
+def edit_product(id):
+    product_edit = product_repository.select(id)
+    return render_template("products/edit.html", product_edit = product_edit)
 
 # UPDATE
 # POST '/products/<id>'
+@products_blueprint.route("/products", methods=["POST"])
+def update_product():
+    product_name = request.form["product_name"]
+    product_type = request.form["product_type"]
+    product_description = request.form["product_description"]
+    stock_quantity = request.form["stock_quantity"]
+    buying_cost = request.form["buying_cost"]
+    selling_price = request.form["selling_price"]
+    product_manufacturer = request.form["product_manufacturer"]
+    product_image = request.form["product_image"]
+    product = product_repository.select(product_manufacturer)
+    update_product = Product(product_name, product_type, product_description, stock_quantity, buying_cost, selling_price, product, product_image)
+    product_repository.save(update_product)
+    return redirect("products/edit.html", update_product = update_product)
 
 # DELETE
 # DELETE '/products/<id>'

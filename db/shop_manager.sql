@@ -17,6 +17,6 @@ CREATE TABLE products (
   buying_cost money,
   selling_price money,
   product_manufacturer VARCHAR(255),
-  manufacturer_id INT REFERENCES manufacturers(id),
-  product_image TEXT
+  product_image TEXT,
+  manufacturer_id INT REFERENCES manufacturers(id)
 );

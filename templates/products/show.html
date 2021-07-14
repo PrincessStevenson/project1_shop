@@ -1,7 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for product in all_products %}
+
+{{product.product_image}}
 
 
 
+{% endfor %}
 
 
-
-<img src="http://www.bunnyslippers.com/blog/wp-content/uploads/2013/10/worlds-fluffiest-rabbit.jpg">
+{% endblock %}

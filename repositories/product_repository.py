@@ -6,7 +6,7 @@ import repositories.product_repository as product_repository
 
 
 def save(product):
-    sql = "INSERT INTO products (product_name, product_type, product_description, stock_quantity, buying_cost, selling_price, manufacturer_id, product_image) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
+    sql = "INSERT INTO products (product_name, product_type, product_description, stock_quantity, buying_cost, selling_price, manufacturer_id, product_image) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING *"
     values = [product.product_name, product.product_type, product.product_description, product.stock_quantity, product.buying_cost, product.selling_price, product.product_manufacturer.id, product.product_image]
     results = run_sql(sql, values)
     id = results[0]['id']
