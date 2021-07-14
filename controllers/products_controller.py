@@ -40,8 +40,9 @@ def create_product():
     buying_cost = request.form["buying_cost"]
     selling_price = request.form["selling_price"]
     product_manufacturer = request.form["product_manufacturer"]
+    product_image = request.form["product_image"]
     product = product_repository.select(product_manufacturer)
-    create_product = Product(product_name, product_type, product_description, stock_quantity, buying_cost, selling_price, product)
+    create_product = Product(product_name, product_type, product_description, stock_quantity, buying_cost, selling_price, product, product_image)
     product_repository.save(create_product)
     return redirect("/products")
 
