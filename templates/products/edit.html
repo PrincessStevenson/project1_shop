@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>
+</p>
+<form action="/products/{{product.id}}/edit" method="post">
+        <fieldset class="form-group">
+
+</form>
+
+<form action="/products" method="post">
+
+    <div>
+        <label for="product_name">Product Name:</label>
+        <input type="text" id="product_name" class="form-control" name="product_name" placeholder={{product.product_name}}>
+    </div>
+
+    <p>
+    </p>
+
+    <div>    
+        <label for="product_type">Product Type:</label>
+        <p></p>
+        <input type="radio" id="product_type" name="product_type" value="Toys">
+        <label for="Toys">Toys</label><br>
+        <input type="radio" id="product_type" name="product_type" value="Uniforms">
+        <label for="uniforms">Uniforms</label><br>
+        <input type="radio" id="product_type" name="product_type" value="Other">
+        <label for="other">Other</label>
+  
+    <p>
+    </p>
+
+    <div>
+        <label for="product_description">Product Description:</label>
+        <input type="text" id="product_description" name="product_description">
+    </div>
+    <p>
+    </p>
+    <div>
+        <label for="stock_quantity">Stock Quantity:</label>
+        <input type="text" id="stock_quantity" name="stock_quantity">
+    </div>
+    <p>
+    </p>
+    <div>
+        <label for="buying_cost">Buying Cost:</label>
+        <input type="text" id="buying_cost" name="buying_cost">
+    </div>
+    <p>
+    </p>
+    <div>
+        <label for="selling_price">Selling Price:</label>
+        <input type="text" id="selling_price" name="selling_price">
+    </div>
+    <p>
+    </p>
+    <div>
+        <label for="product_manufacturer">Manufacturer:</label>
+        <select name="product_manufacturer" id="product_manufacturer">
+            {% for manufacturer in all_manufacturers %}
+                <option value={{manufacturer.id}}>{{manufacturer.manufacturers_name}}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+    <p>
+    </p>
+    <div>
+        <label for="in_stock">In Stock?:</label>
+        <select name="in_stock" id="in_stock">
+            <option value="true">Stock Available</option>
+            <option value="false" selected>Out of Stock!</option>
+        </select>
+    </div>
+
+    <p>
+    </p>
+    <button type="reset"> Reset </button>
+
+    <button type="submit"> Confirm Changes </button>
+
+    
+</form>
+
+</form>
+
+{% endblock %}
+
+
+<form action="" method="">
+            <fieldset class="form-group">
+              <label for="formName">Your Name:</label>
+              <input id="formName" class="form-control" type="text" placeholder="Your Name" required>
+            </fieldset>
+              
+            <fieldset class="form-group">
+              <label for="formEmail1">Email address:</label>
+              <input id="formEmail1" class="form-control" type="email" placeholder="Enter email" required>
+            </fieldset>
+            
+            <fieldset class="form-group">
+              <label for="formMessage">Your Message:</label>
+              <textarea id="formMessage" class="form-control" rows="3" placeholder="Your message" required></textarea>
+            </fieldset>
+            
+            <fieldset class="form-group text-center">
+              <button class="btn btn-primary" type="submit">Send Message</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>

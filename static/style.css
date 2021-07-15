@@ -3,7 +3,7 @@ html {font: 16px 'Open Sans Condensed', 'Roboto Condensed', Verdana, sans-serif;
 
 
 #header{
-    color: hotpink;
+    color: lightgrey;
     font: 20%;
     text-align: center;
 
@@ -11,7 +11,7 @@ html {font: 16px 'Open Sans Condensed', 'Roboto Condensed', Verdana, sans-serif;
 body {
   width: 100%;
   height: 100%;
-  background-color: turquoise;
+  background-color: hotpink;
 }
 
 
