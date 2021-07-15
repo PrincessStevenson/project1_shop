@@ -78,9 +78,9 @@
       <label for="rrp">{{product.selling_price}}</label>
 
     
-<p class={{ product.check_stock() [1] }}>
+<b><p class={{ product.check_stock() [1] }}>
     {{ product.check_stock() [0] }} 
-</p>
+</p></b>
 <p> <form class="delete-form" action="/products/{{product.id}}/delete" method="POST">
             <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:hotpink" aria-hidden="true"></i></button>
         </form>
