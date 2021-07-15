@@ -1,13 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-"Manufacturers Page"
+<h2>"All Manufacturers"</h2>
 <p>
 </p>
 <p>
 </p>
 {% for manufacturer in all_manufacturers%}
-    {{ manufacturer.manufacturers_name}}
-    {{ manufacturer.country_origin}}
+    Manufacturer/Supplier Name:<b>{{ manufacturer.manufacturers_name}}</b>
+    <p>
+    </p>
+    Origin/Shipping Country: <b>{{ manufacturer.country_origin}}</b>
+<p>
+</p>
+<p> <form class="delete-form" action="/manufacturer/{{manufacturer.id}}/delete" method="POST">
+            <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:hotpink" aria-hidden="true"></i></button>
+        </form>
+   
+            <form class="form-group text-center" action="/manufacturer/{{manufacturer.id}}/edit" method="POST">
+              <button class="btn btn-primary" type="edit">Edit</button>
+            </form>
+</p>
 <p>
 </p>
 {% endfor %}
