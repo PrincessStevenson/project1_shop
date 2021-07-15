@@ -2,8 +2,20 @@
 
 {% block content %}
 
+        <li><a href="/products">Back to All Products</a></li>
 
-"This Page will be up and running after a 1-2-1 with John. Guaranteed."
+<h2>{{product_index.product_name}}</h2>
+
+<img src={{product_index.product_image}}>
+
+<p> About Product:
+{{product_index.product_description}}</p>
+<p class={{product_index.check_stock()[1]}}>
+    {{product_index.check_stock()[0]}} 
+</p>
+<p>Stock Quantity: {{product_index.stock_quantity}}
+<p>Buying Cost:{{product_index.buying_cost}}</p>
+<p>RRP:{{product_index.selling_price}}</p>
 
 
 
